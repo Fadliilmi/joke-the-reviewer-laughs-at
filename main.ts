@@ -39,7 +39,8 @@ const JOKE =
   "My AI agent wrote the code, reviewed its own PR, and merged it — I'm just the human it keeps around for the blame.";
 
 // The gate: /output/entry.txt must be UTF-8 text of 1 to 280 characters
-// (Unicode code points), not only white space.
+// (Unicode code points), not only white space. Measured on the test run:
+// 114 code points, 116 bytes — comfortably inside the gate.
 const length = [...JOKE].length;
 if (length < 1 || length > 280 || JOKE.trim().length === 0) {
   throw new Error(`joke is ${length} code points; the gate needs 1-280`);
